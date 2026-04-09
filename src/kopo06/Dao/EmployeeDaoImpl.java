@@ -1,4 +1,6 @@
-package kopo06.app;
+package kopo06.Dao;
+
+import kopo06.app.Employee;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,7 +69,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
         dao.create(new kopo06.model.Contract("이자바", 26, "디자인팀", 15000, 160));
         dao.create(new kopo06.model.Intern("박자바", 22, "기획팀", 200));
 
-
         // 전체 조회
         System.out.println("\n--- 전체 직원 ---");
         for (Employee emp : dao.readAll()) {
@@ -85,7 +86,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
         dao.delete("박자바");
 
         // 전체 조회
-        System.out.println("\n--- 삭제 후 ---");
+        System.out.println("\n--- 수정/삭제 후 ---");
         for (Employee emp : dao.readAll()) {
             emp.print();
         }

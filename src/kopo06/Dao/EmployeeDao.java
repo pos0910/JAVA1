@@ -1,4 +1,6 @@
-package kopo06.app;
+package kopo06.Dao;
+
+import kopo06.app.Employee;
 
 import java.util.List;
 
@@ -9,6 +11,7 @@ public interface EmployeeDao {
         //Read
         Employee readOne(String name);
 
+        //ALL
         List<Employee> readAll();
 
         //Update
@@ -16,8 +19,6 @@ public interface EmployeeDao {
 
         //Delete
         Employee delete(String name);
-
-
 
 
 }
