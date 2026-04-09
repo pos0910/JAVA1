@@ -1,5 +1,3 @@
-package kopo06.test;
-
 import kopo06.Dao.EmployeeDaoImpl;
 import kopo06.app.Employee;
 import kopo06.model.Contract;
