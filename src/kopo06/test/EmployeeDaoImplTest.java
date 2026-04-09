@@ -78,7 +78,7 @@ public class EmployeeDaoImplTest {
     @Order(7)
     @DisplayName("삭제 후 전체 조회 - 2명")
     void testReadAllAfterDelete() {
-        List<Employee> list = dao.readAll();
+        List<Employee> list = dao.readAll();    //리스트 값 전부 출력
         assertEquals(2, list.size());
     }
 }
