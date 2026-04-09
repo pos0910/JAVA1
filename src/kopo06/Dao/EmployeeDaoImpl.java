@@ -9,12 +9,13 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 
     private static EmployeeDaoImpl instance; //싱글톤
-    private List<Employee> employees = new ArrayList<>(); //리스트 생성
+
+     List<Employee> employees = new ArrayList<>(); //리스트 생성
     private int nextId = 1; //지역변수 선언
 
-    private  EmployeeDaoImpl() {}
+    private  EmployeeDaoImpl() {}//싱글턴
 
-    public static EmployeeDaoImpl getInstance() {
+    public static EmployeeDaoImpl getInstance() {//싱글턴
         if (instance == null) {
             instance = new EmployeeDaoImpl();
         }

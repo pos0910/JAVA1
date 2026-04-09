@@ -24,5 +24,4 @@ public class EmployeeTest {
         assertEquals(180.0, in.calcSalary(), 0.01);  // 고정 수당
     }
 
-
 }
