@@ -7,9 +7,19 @@ import java.util.List;
 
 public class EmployeeDaoImpl implements EmployeeDao {
 
-    private List<Employee> employees = new ArrayList<>(); //리스트 생성
 
+    private static EmployeeDaoImpl instance; //싱글톤
+    private List<Employee> employees = new ArrayList<>(); //리스트 생성
     private int nextId = 1; //지역변수 선언
+
+    private  EmployeeDaoImpl() {}
+
+    public static EmployeeDaoImpl getInstance() {
+        if (instance == null) {
+            instance = new EmployeeDaoImpl();
+        }
+        return instance;
+    }
 
 
     public Employee create(Employee employee) {//추가하기
@@ -19,11 +29,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
         System.out.println("추가완료!  " + employee.getName() + " (총 "+(nextId-1)+"명)");
         return employee;
     }
-
-//    @Override
-//    public Employee readOne(String name) {
-//        return null;
-//    }
 
     public List<Employee> readAll() {
         return new ArrayList<>(employees);
@@ -61,13 +66,17 @@ public class EmployeeDaoImpl implements EmployeeDao {
     }
 
     public static void main(String[] args) {
-        EmployeeDaoImpl dao = new EmployeeDaoImpl();
+        EmployeeDaoImpl dao = EmployeeDaoImpl.getInstance();
 
         // 추가하려는 데이터 입력하기
 
         dao.create(new kopo06.model.FullTime("김자바", 30, "개발팀", 6000));
         dao.create(new kopo06.model.Contract("이자바", 26, "디자인팀", 15000, 160));
         dao.create(new kopo06.model.Intern("박자바", 22, "기획팀", 200));
+
+        EmployeeDaoImpl dao2 = EmployeeDaoImpl.getInstance();
+        System.out.println("싱글톤 확인: " + (dao == dao2));  // true - 같은 객체
+
 
         // 전체 조회
         System.out.println("\n--- 전체 직원 ---");

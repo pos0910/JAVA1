@@ -28,6 +28,8 @@ public class EmployeeMain {
                 new Intern("정코틀린", 22, "개발팀", 180)
         };
 
+
+
         printAll(employees);
         System.out.printf("총 인건비: %.0f만원%n", calcTotalSalary(employees));
         System.out.println("총인원 수: " + Employee.getTotalCount());
