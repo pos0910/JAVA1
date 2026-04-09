@@ -1,5 +1,4 @@
 package kopo06.app;
-import kopo06.model.EmployeeDao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,11 +18,10 @@ public class EmployeeDaoImpl implements EmployeeDao {
         return employee;
     }
 
-    @Override
-    public Employee readOne(int id) {
-        return null;
-    }
-
+//    @Override
+//    public Employee readOne(String name) {
+//        return null;
+//    }
 
     public List<Employee> readAll() {
         return new ArrayList<>(employees);
@@ -31,7 +29,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     public Employee update(int id, Employee updated) {
         for (int i = 0; i < employees.size(); i++) {
-            if (employees.get(i).getId() == id) {
+            if (employees.get(i).getId() == id) { //updated할 id를 찾아서 -> 리스트 교체 -> updated 반환
                 updated.setId(id);
                 employees.set(i, updated);
                 return updated;
@@ -39,7 +37,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
         }
         return null;
     }
-
 
     public Employee delete(String name) {
         for (int i = 0; i < employees.size(); i++) {
@@ -53,7 +50,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
         return  null;
     }
 
-    public Employee findByName(String name) {//사람 이름으로 직원을 찾는 메서드
+    //readone
+    public Employee readOne(String name) {//사람 이름으로 직원을 찾는 메서드
         for (Employee emp : employees) {
             if (emp.getName().equals(name)) return emp;
         }
@@ -78,10 +76,10 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
         // 이름 검색
         System.out.println("\n--- 이름 검색 ---");
-        dao.findByName("김자바").print();
+        dao.readOne("김자바").print();
 
         // 수정
-        //dao.update(1, new kopo06.model.FullTime("김자바수정", 31, "백엔드팀", 7000));
+        dao.update(1, new kopo06.model.FullTime("김자바수정", 31, "백엔드팀", 7000));
 
         // 삭제
         dao.delete("박자바");

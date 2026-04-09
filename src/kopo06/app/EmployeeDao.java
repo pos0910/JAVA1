@@ -7,17 +7,16 @@ public interface EmployeeDao {
         Employee create(Employee employee);
 
         //Read
-        Employee readOne(int id);
+        Employee readOne(String name);
+
         List<Employee> readAll();
 
         //Update
         Employee update(int id, Employee employee);
 
-        //Delate
-        Employee delete(int id);
+        //Delete
+        Employee delete(String name);
 
-        //Pagination, Sorting, Filter
-        Employee findByName(String name);
 
 
 
